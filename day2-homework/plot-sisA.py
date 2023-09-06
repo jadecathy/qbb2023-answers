@@ -41,6 +41,8 @@ expression_m = data[row, cols2]
 x = ["10","11","12","13","14A","14B","14C","14D"]
 y1 = expression_f
 y2 = expression_m
+print(type(y2))
+y3 = 2 * np.array(expression_m)
 
 # Plot data
 fig, ax = plt.subplots()
@@ -49,7 +51,8 @@ ax.set_ylabel("mRNA abundance(RPKM)")
 ax.set_title( "FBtr0073461" )
 plt.plot(x,y1)
 plt.plot(x,y2)
-plt.legend(["Female", "Male"])
+plt.plot(x,y3)
+plt.legend(["Female", "Male", "2* Male"])
 plt.xticks(rotation = 45)
 plt.tight_layout()
 plt.show()
