@@ -16,29 +16,40 @@ data = np.loadtxt( "all_annotated.csv", delimiter=",", dtype=np.float32, skiprow
 print( "data: ", data[0:5, 0:5] )
 
 # Find row with transcript of interest
+row = 0
 for i in range(len(transcripts)):
     if transcripts[i] == 'FBtr0073461':
         row = i
 
 # Find columns with samples of interest
-cols = []
+cols1 = []
 for i in range(len(samples)):
     if "female" in samples[i]:
-        cols.append(i)
+        cols1.append(i)
+cols2 = []
+for i in range(len(samples)):
+    if "female" not in samples[i]:
+        cols2.append(i)
+# print(cols1)
+# print(cols2)
 
 # Subset data of interest
-expression = data[row, cols]
+expression_f = data[row, cols1]
+expression_m = data[row, cols2]
 
 # Prepare data
-x = samples[cols]
-y = expression
+x = ["10","11","12","13","14A","14B","14C","14D"]
+y1 = expression_f
+y2 = expression_m
 
 # Plot data
 fig, ax = plt.subplots()
 ax.set_xlabel("developmental stage")
 ax.set_ylabel("mRNA abundance(RPKM)")
 ax.set_title( "FBtr0073461" )
-ax.plot( x, y )
+plt.plot(x,y1)
+plt.plot(x,y2)
+plt.legend(["Female", "Male"])
 plt.xticks(rotation = 45)
 plt.tight_layout()
 plt.show()
