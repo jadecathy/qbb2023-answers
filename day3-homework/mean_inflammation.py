@@ -7,8 +7,8 @@ patient2_id = 10
 fname = sys.argv[1]
 f = open(fname).readlines()
 
-calc_list =[]
 def mean_patient(patient_id):
+	calc_list =[]
 	allday_list = f[patient_id-1].rstrip("\n").rsplit(",")
 	for i in allday_list:
 		calc_list.append(float(i))
