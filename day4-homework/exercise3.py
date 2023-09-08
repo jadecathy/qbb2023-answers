@@ -49,7 +49,7 @@ ax1.set_title("population size vs num_generation")
 # generate multiple 
 
 
-for k in range(10):
+for k in range(30):
 	freq_hist_list = []
 	count_generation_list = []
 	population_size = 1000
