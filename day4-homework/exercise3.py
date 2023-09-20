@@ -20,7 +20,8 @@ def pesudo_evolution(al_freq, pplt_size):
 	return freq_hist_list
 
 
-fig, (ax1,ax2) = plt.subplots(1,2)
+fig1, ax1 = plt.subplots()
+fig2, ax2 = plt.subplots()
 
 ## generate the multiple population size
 
@@ -43,8 +44,8 @@ for k in range(200):
 ax1.set_ylim(0,50000)
 ax1.set_xlabel("population size")
 ax1.set_ylabel("time to fixation")
-ax1.set_title("population size vs num_generation")
-
+ax1.set_title("Exercise3_ population size vs timetofixation")
+fig1.savefig( "exercise3_ population size vs timetofixation.png" )
 
 # generate multiple 
 
@@ -66,8 +67,6 @@ for k in range(30):
 
 ax2.set_xlabel("allele_starting_freq")
 ax2.set_ylabel("time to fixation")
-ax2.set_title("allele_starting_freq vs num_generation")
-
-fig.tight_layout()
-fig.savefig( "exercise3.png" )
+ax2.set_title("allele_starting_freq vs timetofixation")
+fig2.savefig( "exercise3_ allele_starting_freq vs timetofixation.png" )
 plt.show()

@@ -22,7 +22,8 @@ def pesudo_evolution(al_freq, pplt_size):
 	return freq_hist_list
 
 
-fig, (ax1,ax2) = plt.subplots(1,2)
+fig1, ax1 = plt.subplots()
+fig2, ax2 = plt.subplots()
 
 ## generate the trajectoies
 
@@ -35,8 +36,8 @@ for k in range(40):
 
 ax1.set_xlabel("generations")
 ax1.set_ylabel("frequency of the allele")
-ax1.set_title("trajectories")
-
+ax1.set_title("exercise2_trajectories")
+fig1.savefig( "exercise2_trajectory.png" )
 
 
 # visualize time to fixation
@@ -53,9 +54,9 @@ for k in range(1000):
 ax2.hist(time_to_fixation_list)
 ax2.set_xlabel("time to fixation")
 ax2.set_ylabel("frequencies")
-ax2.set_title("histogram")
+ax2.set_title("exercise2_histogram")
 
-fig.tight_layout()
-fig.savefig( "exercise2.png" )
+
+fig2.savefig( "exercise2_Time To Fixation.png" )
 
 plt.show()

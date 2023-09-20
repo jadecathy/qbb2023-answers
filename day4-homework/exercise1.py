@@ -36,8 +36,14 @@ def pesudo_evolution(al_freq, pplt_size):
 
 num_generation = len(pesudo_evolution(allele_starting_freq, population_size))
 print(num_generation)
+
 fig, ax = plt.subplots()
 print(type(range(num_generation)))
+ax.set_xlabel("generations")
+ax.set_ylabel("frequency of the allele")
+ax.set_title("Exercise1 trajectories")
+
 plt.plot((num_generation_list),freq_hist_list)
+fig.savefig('exercise1_trajectory.png')
 plt.show()
 
