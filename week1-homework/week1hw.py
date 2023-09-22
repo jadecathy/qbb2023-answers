@@ -53,19 +53,19 @@ print(cmb_df)
 ############# Exercise 2 Fit and interpret linear regression models with Python #####################
 
 ## plotting the figure
-fig1, ax = plt.subplots()
-ax.set_xlabel("maternal age(years)")
-ax.set_ylabel("maternal de novo mutations")
-ax.set_title( "Maternal DNM vs age")
+fig1, ax1 = plt.subplots()
+ax1.set_xlabel("maternal age(years)")
+ax1.set_ylabel("# of maternal de novo mutations")
+ax1.set_title( "Maternal DNM vs age")
 plt.scatter(cmb_df['Mother_age'], cmb_df['maternal_dnm'])
 plt.show()
 fig1.savefig( "ex2_a.png" )
 plt.close(fig1)
 
-fig2, ax = plt.subplots()
-ax.set_xlabel("paternal age(years)")
-ax.set_ylabel("paternal de novo mutations")
-ax.set_title( "Paternal DNM vs age")
+fig2, ax2 = plt.subplots()
+ax2.set_xlabel("paternal age(years)")
+ax2.set_ylabel("# of paternal de novo mutations")
+ax2.set_title( "Paternal DNM vs age")
 plt.scatter(cmb_df['Father_age'], cmb_df['paternal_dnm'])
 plt.show()
 fig2.savefig( "ex2_b.png" )
@@ -90,5 +90,18 @@ print(results2.pvalues)
 # print(paternal_model.predict(father_predict))
 
 
+## making the plot
+fig3, ax3 = plt.subplots()
+ax3.hist(cmb_df['maternal_dnm'], alpha = 0.5, label = 'maternal_DNM')
+ax3.hist(cmb_df['paternal_dnm'], alpha = 0.5, label = 'paternal_DNM')
+plt.legend(loc='upper right')
+plt.title('maternal_dnm vs paternal_dnm distribution')
+plt.show()
+fig3.savefig('ex2_c.png')
+plt.close(fig3)
+
 ## difference between the number of maternally vs. paternally inherited DNMs per proband
 print(wilcoxon(cmb_df['maternal_dnm'], cmb_df['paternal_dnm']))
+
+
+
