@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import poisson
+from scipy.stats import norm
 
 #==============#
 #  Exercise 1  #
@@ -25,7 +26,7 @@ def simulate_coverage(coverage, genome_length, read_length, figname):
 	sim_0cov = genome_length - np.count_nonzero(coverage_arr)
 	sim_0cov_pct = 100 * sim_0cov / genome_length
 	print(f'in the simulation, there are {sim_0cov} bases with 0')
-	print(f'There are {sim_0cov_pct} % of the genome')
+	print(f'{sim_0cov_pct} % of the genome has not been covered.')
 	
 
 	x = np.arange(0, max(coverage_arr)+1)
@@ -34,19 +35,26 @@ def simulate_coverage(coverage, genome_length, read_length, figname):
 	y_possion = poisson.pmf(x, mu = coverage) * genome_length
 
 	# Get normal distribution
-
+	y_norm = norm.pdf(x, coverage, np.sqrt(coverage)) * genome_length
 
 	#make fig
 	fig, ax = plt.subplots()
 	ax.hist(coverage_arr, bins = x, alpha = .5, label='simulation')
 	ax.plot(x, y_possion, label='poisson')
+	ax.plot(x, y_norm, label='normal')
 	ax.set_xlabel('Coverage')
 	ax.set_ylabel('Frequency(bp)')
+	ax.set_title('simulation of sequencing')
+	ax.legend()
 	plt.tight_layout()
+	plt.show()
 	fig.savefig(figname)
 
-simulate_coverage(3, 1000_000, 100, 'tmp.png')
+simulate_coverage(3, 1000_000, 100, 'ex1_3x_cov.png')
+simulate_coverage(10, 1000_000, 100, 'ex1_10x_cov.png')
+simulate_coverage(10, 1000_000, 180, 'ex1_30x_cov.png')
 
 
-
-
+#==============#
+#  Exercise 2  #
+#==============#
