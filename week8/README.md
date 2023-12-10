@@ -1,8 +1,12 @@
 ### Command to run chicago
 - Rscript runChicago.R raw/PCHIC_Data/GM_rep3.chinput GM3 -d raw/Design --en-feat-list raw/Features/featuresGM.txt -e washU_text
 
+-------------------------------------
+
 ### Do these enrichments make sense to you? Are any surprising? Explain your reasoning briefly for each feature.
 - Yes it generally make sense to me. The data represents the enrichment of Promoter-Capture Hi-C (pCHiC) interactions. CTCF encodes proteins binding at chromatin domain boundaries, at enhancers and gene promoters, so it's reasonable that CTCF is enriched. Other enriched genes including H3K4me1 (which is usually enriched at active and primed enhancers), H3K4me3 and H3K27ac (both promote gene activation). Promoter-interacting fragments were also enriched for repressed chromatin marks, such as H3K27me3 and H3K9me3, this is more suprising but may be atributed to Polycomb regulation.
+
+-------------------------------------
 
 ### Top 6 interactions between two promoters
 911  chr21  34854620  34868437  .  653  18.64  .   0  ...  34861406                                      AP000302.58   +  chr21  34861480  34868437          DNAJC28   +
@@ -17,6 +21,7 @@
 
 377  chr20  37045992  37082176  .  514  14.66  .   0  ...  37082176  SNHG11;SNHG17;SNORA60;SNORA71C;SNORA71D;SNORA71   +  chr20  37045992  37055959  SNHG17;SNORA71B   +
 
+---------------------------------------------------------------------
 
 ### Top 6 interactions between promoter and enhancer sets
 614  chr20  55957140  56074932  .  1000  28.52  .   0  chr20  55957140  55973022        RBM38;RP4-800J21.3  +  chr20  56067414  56074932  .  -
@@ -31,6 +36,7 @@
 
 727  chr21  26793954  26939577  .   570  16.26  .   0  chr21  26926437  26939577                  MIR155HG  +  chr21  26793954  26795680  .  -
 
+---------------------------------------------------------------------
 
 ### Does it make sense for this gene to be interacting with enhancers in GM12878? 
 - Yes. Top1 encodes a DNA topoisomerase, an enzyme that controls and alters the topologic states of DNA during transcription. It is very likely that it is actively interacting with enhancer domains for regulation. RBM38 encodes RNA binding motif protein and enables mRNA 3'-UTR binding activity, so it is also likely.
