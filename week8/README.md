@@ -1,4 +1,6 @@
 ### Command to run chicago
+- Rscript runChicago.R raw/PCHIC_Data/GM_rep1.chinput GM1 -d raw/Design --en-feat-list raw/Features/featuresGM.txt -e washU_text
+- Rscript runChicago.R raw/PCHIC_Data/GM_rep2.chinput GM2 -d raw/Design --en-feat-list raw/Features/featuresGM.txt -e washU_text
 - Rscript runChicago.R raw/PCHIC_Data/GM_rep3.chinput GM3 -d raw/Design --en-feat-list raw/Features/featuresGM.txt -e washU_text
 
 -------------------------------------
